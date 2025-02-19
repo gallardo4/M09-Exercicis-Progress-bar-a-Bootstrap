@@ -48,11 +48,12 @@
         <div id="myProgressBar" class="progress-bar bg-info" style="width: 0%;">0%</div>
     </div>
 
-    <button class="btn btn-primary mt-2" onclick="increaseProgress()">Augmentar Progrés</button>
+    <button id="btn" class="btn btn-primary mt-2" onclick="increaseProgress()">Augmentar Progrés</button>
 
     <script>
         function increaseProgress() {
             let progressBar = document.getElementById("myProgressBar");
+            let button = document.getElementById("btn");
             let currentWidth = parseInt(progressBar.style.width);
 
             if (currentWidth < 100) {
@@ -61,6 +62,15 @@
                 progressBar.innerText = newWidth + "%";
             } else if (currentWidth >= 100) {
                 progressBar.style.width = "0%";
+                button.innerText = "Augmentar Progrés";
+            }
+
+            if (currentWidth >= 90) {
+                button.innerText = "Reiniciar Progrés";
+            }
+
+            if (currentWidth >= 100) {
+                button.innerText = "Augmentar Progrés";
             }
         }
     </script>
